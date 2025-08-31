@@ -173,3 +173,24 @@ GitHub Repo: ([https://github.com/Ochessi/tasknest](tasknest))
     PostgreSQL
 
     Git & GitHub
+
+## 🔐 Authentication (JWT)
+- **POST** `/api/auth/register/` → create user
+- **POST** `/api/auth/token/` → obtain `{ access, refresh }`
+- **POST** `/api/auth/token/refresh/` → refresh access token
+- **GET** `/api/users/me/` → current user profile (auth)
+
+## ✅ Tasks
+- **GET/POST** `/api/tasks/`
+- **GET/PUT/DELETE** `/api/tasks/{id}/`
+- **PATCH** `/api/tasks/{id}/complete/` → `{ is_completed: true|false }`
+
+## 🗂️ Categories
+- **GET/POST** `/api/categories/`
+- **GET/PUT/DELETE** `/api/categories/{id}/`
+
+## 🏷️ Tags
+- **GET/POST** `/api/tags/`
+- **GET/PUT/DELETE** `/api/tags/{id}/`
+
+> Auth: send `Authorization: Bearer <access_token>` header for all endpoints except register/token.

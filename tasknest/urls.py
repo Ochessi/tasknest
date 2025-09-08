@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+from django.conf.urls.static import static
 
 # Admin site customization
 admin.site.site_header = getattr(settings, 'ADMIN_SITE_HEADER', 'TaskNest Admin')
@@ -236,3 +237,7 @@ urlpatterns = [
             schema_view.without_ui(cache_timeout=0), 
             name='schema-json'),
 ]
+
+# Serve static files in development
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

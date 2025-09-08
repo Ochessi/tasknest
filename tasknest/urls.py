@@ -16,26 +16,32 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from django.http import HttpResponse
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
-def home(request):
-    return HttpResponse("Welcome to TaskNest API 🚀") 
+
+@api_view(["GET"])
+def api_root(request):
+    return Response({
+        "message": "Welcome to TaskNest API 🚀",
+        "endpoints": {
+            "auth": "/api/auth/",
+            "tasks": "/api/tasks/",
+            "categories": "/api/categories/",
+            "tags": "/api/tags/",
+            "admin": "/admin/"
+        }
+    })
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", home),
-
-    # Auth (JWT)
-    path("api/auth/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
-    path("api/auth/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
-
-    # App APIs
-    path("api/", include("users.urls")),
-    path("api/", include("tasks.urls")),
-    path("api/", include("categories.urls")),
-    path("api/", include("tags.urls")),
+    path("admin/", admin.site.urls),
+    path("", api_root),   # Root returns JSON
+    path("api/users/", include("users.urls")),
+    path("api/tasks/", include("tasks.urls")),
+    path("api/categories/", include("categories.urls")),
+    path("api/tags/", include("tags.urls")),
+    path("api/auth/", include("users.urls")),
 ]
 
     

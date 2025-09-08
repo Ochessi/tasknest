@@ -1,11 +1,19 @@
 # TaskNest 📝
 
-TaskNest is a task management web app designed to help users organize their tasks, categorize them, and tag them for better productivity.  
-This project is built using **Django** and will expose a REST API using **Django REST Framework (DRF)**.
+TaskNest is a comprehensive task management REST API built with Django REST Framework. It provides user authentication, task management, categorization, and tagging functionality with advanced filtering, search, and statistics capabilities.
 
----
+## ✨ Features
 
-## 🚀 Week 1 Progress
+- **User Management**: Registration, authentication with JWT tokens, user profiles
+- **Task Management**: Create, read, update, delete tasks with priority levels
+- **Categories & Tags**: Organize tasks with categories and colorful tags
+- **Advanced Filtering**: Filter tasks by completion status, priority, due date
+- **Search Functionality**: Search tasks by title and description
+- **Statistics Dashboard**: Get insights into task completion rates
+- **Admin Interface**: Full Django admin with enhanced filtering
+- **API Documentation**: Comprehensive API documentation with examples
+
+## 🚀 Project Status: COMPLETED ✅
 
 ### 1. Project Initialization
 - Created Django project: `tasknest`

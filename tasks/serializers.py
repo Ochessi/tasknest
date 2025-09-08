@@ -22,10 +22,10 @@ class TaskSerializer(serializers.ModelSerializer):
         model = Task
         fields = [
             "id", "user", "title", "description", "is_completed",
-            "due_date", "priority", "created_at",
+            "due_date", "priority", "created_at", "updated_at",
             "categories", "tags", "category_ids", "tag_ids"
         ]
-        read_only_fields = ["id", "user", "created_at", "categories", "tags"]
+        read_only_fields = ["id", "user", "created_at", "updated_at", "categories", "tags"]
 
     def create(self, validated_data):
         cat_ids = validated_data.pop("category_ids", [])

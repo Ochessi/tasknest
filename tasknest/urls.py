@@ -6,6 +6,8 @@ from drf_yasg import openapi
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 
 # Admin site customization
 admin.site.site_header = getattr(settings, 'ADMIN_SITE_HEADER', 'TaskNest Admin')
@@ -220,7 +222,7 @@ urlpatterns = [
     
     # API Documentation
     path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('api/redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('api/redoc/', csrf_exempt(schema_view.with_ui('redoc', cache_timeout=0)), name='schema-redoc'),
     
     # API Endpoints
     path('api/auth/', include('users.auth_urls')),

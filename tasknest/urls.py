@@ -123,7 +123,6 @@ POST /api/auth/token/refresh/
 
 ---
 
-*Built with ❤️ using Django REST Framework and modern web technologies*
         """,
         terms_of_service="https://tasknest.com/terms/",
         contact=openapi.Contact(

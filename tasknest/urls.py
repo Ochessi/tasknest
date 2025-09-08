@@ -140,6 +140,7 @@ POST /api/auth/token/refresh/
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
+    authentication_classes=[],
 )
 
 # Health check view

@@ -225,8 +225,7 @@ urlpatterns = [
     path('api/redoc/', csrf_exempt(schema_view.with_ui('redoc', cache_timeout=0)), name='schema-redoc'),
     
     # API Endpoints
-    path('api/auth/', include('users.auth_urls')),
-    path('api/users/', include('users.user_urls')),
+    path('api/users/', include('users.urls')),
     path('api/tasks/', include('tasks.urls')),
     path('api/categories/', include('categories.urls')),
     path('api/tags/', include('tags.urls')),
